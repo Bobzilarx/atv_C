@@ -6,8 +6,8 @@
 //Autor : Daniel Alves 3° Semestre 27/11/2022 APA
 //Qtd de linhas do codigo a ser lido + 1, usado no char de todas as funções, fica mais facil mudar a partir daqui
 
-#define endereco1 "C:\\Users\\Public\\BUSCA\\CODIGO1.txt"
-#define endereco2 "C:\\Users\\Public\\BUSCA\\CODIGO2.txt"
+#define endereco1 "C:\\Users\\Public\\BUSCA\\CODIGO1.txt" //Endereço do cod 1
+#define endereco2 "C:\\Users\\Public\\BUSCA\\CODIGO2.txt" //Endereço do cod 2
 #define linhas 160
 
 void cod(int i){
@@ -51,9 +51,12 @@ void cod(int i){
 	}
 	
 	fclose(arq);     //Fecha o arquivo
-	
-	qt_while-=qt_do; //Diferença
-	qt_eq-=qt_entr;  //Diferença
+	if(qt_while-qt_do > 0){
+	 qt_while-=qt_do; //Diferença
+	}  
+	if(qt_eq-qt_entr > 0){
+	 qt_eq-=qt_entr; //Diferença
+	}  
 	
 	soma = qt_if+qt_else+(qt_for * 2)+(qt_do* 2)+(qt_while* 2)+qt_eq+qt_entr; //Soma geral
 	form1 = 2 * pow(soma,2) + 5 * soma; //Formula 1
@@ -76,12 +79,13 @@ void cod(int i){
 	printf("\nTotal Simples : %i  \nTotal Compostas : %i\n",simp,compost);      //printa o resultado
 	printf("\nAlgoritmo 1 : %i operacoes\nAlgoritmo 2 : %i operacoes\n",form1,form2);
 	
-	clock_t final = clock();                          //finaliza o tempo
+	clock_t final = clock();                           //finaliza o tempo
     tempo += (double)(final - inicio)/CLOCKS_PER_SEC; //da o resultado do tempo percorrido
-    printf("\nTempo de Compilacao: %f\n", tempo);       //printa o resultado do tempo
+    printf("\nTempo de Compilacao: %f\n", tempo);     //printa o resultado do tempo
 }
 
 int main(){
+	
     int i=0;
     cod(i);
     i++;
